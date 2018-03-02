@@ -154,6 +154,27 @@ $(document).on('click', 'button.next', function(){
 		}
 	}
 })
+
+/* Фиксированное меню */
+$(window).scroll(function(){
+	if($(this).scrollTop() > 67){
+		$('header nav').addClass('fixed');
+		$('.logo').fadeIn(600);
+	}
+	else if($(this).scrollTop() < 67){
+		$('header nav').removeClass('fixed');
+		$('.logo').fadeOut(600);
+	}
+})
+// Scroll
+/*
+$(window).scroll(function() {
+	if ($(window).scrollTop() > 200)  { 	  				
+		$('html, body').animate({scrollTop: $('.test0').offset().top }, 500);
+	}	 
+});
+*/
+
 }); // DOMContentLoaded
 
 /* Сработает после загрузки всего контента страницы (картинок в том числе) */ 

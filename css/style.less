@@ -251,7 +251,7 @@ header.header_top{
         ul{
             padding: 0;
             margin: 0 auto;
-            width: 60vw;
+            width: 52vw;
         }
         ul > li{
             height: 64px;
@@ -277,11 +277,21 @@ header.header_top{
             .transition;
         }
     }
+    nav.fixed{
+        position:fixed;
+        top:0;
+        width:100%;
+            z-index: 999;
+    }
     .logo{
         position: absolute;
         left: 4vw;
         max-width: 97px;
         z-index:9;
+        display:none;
+         @media (max-width: @l_mobile){
+            display:none;
+         }
     }
 
     // Burger-menu for mobile
