@@ -4,13 +4,22 @@ var mousedown = ('ontouchstart' in window) ? 'touchstart' : 'mousedown';
 var mouseup = ('ontouchend' in window) ? 'touchend' : 'mouseup';
 document.addEventListener("DOMContentLoaded", function(){
 	/* Owl-carousel */
+	console.log(999)
 	$('.owl-carousel').owlCarousel({
 		items:1,
 		nav: true,
 		navText: [
-		"<img src='//dev-cdn.tnt-online.ru/super/img/prev.png'>",
-		"<img src='//dev-cdn.tnt-online.ru/super/img/next.png'>"
-		]
+		"<img src='img/test/arrow-prev.png'>",
+		"<img src='img/test/arrow-next.png'>"
+		],
+		responsive : {
+			0 : {
+				dots:true
+			},
+			768 : {
+				dots:false
+			}
+		}
 	});
 
 	/* Mobile menu */
@@ -49,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 
 	function closeMenu(){
-
 		$('div.burger').removeClass('open');	
 		$('div.x').removeClass('rotate45').addClass('rotate30'); 
 		$('div.z').removeClass('rotate135').addClass('rotate150');				
@@ -68,80 +76,89 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	}
 
+	/* Owl-carousel */
+	$(document).on('click', '.genres_line span', function(){
+		$('.genres_line span').each(function(){
+			$(this).removeClass("active")
+		});
+		$(this).addClass("active");
+		var thisIndex = $(this).index();
+
+		var data0 = '<div class="hip-hop"><p>Рэп в его современном виде появился в 1970-х годах среди афроамериканцев района Бронкс, куда его «экспортировали» приезжие ямайские диджеи. Читали рэп изначально не в коммерческих целях, а ради удовольствия и делали это поначалу, в основном, диджеи. Это были незамысловатые рифмованные куплеты, обращённые к аудитории.</p></div><div class="hip-hop" id="ee"><p>Самый быстрый рэпер в мире «CEZA». Его рекорд - 1267 слов, произнесенных за 2 минуты 40 секунд. А ты можешь так же? :)</p></div><div class="hip-hop"><p>Хип-хоп не зря считается гангстерским стилем музыки. В 2009 году рэпер Coolio решил нырнуть со сцены в толпу во время выступления. Однако зрители не захотели его подхватывать и расступились. Одним ушибом исполнитель не отделался: зрители тут же обступили его и успели стащить часы, цепочки, бандану и очки, прежде чем охрана клуба вмешалась и вернула рэпера на сцену.</p></div><div class="hip-hop"><p>На сегодняшний день самым популярным рэпером в мире считается Eminem.</p></div><div class="hip-hop"><p>Первые зачатки хип-хопа в России появились в 1984 году в городе Куйбышев. Диск-жокей дискотеки «Канон» Александр Астров совместно с местной группой «Час пик» записали 25-минутную программу, которая вскоре разошлась по всей стране в виде магнитоальбома «Рэп».</p></div><div class="hip-hop"><p>Слово «рэп» произошло от английского «rap» — стук, удар (намёк на ритмичность рэпа). Также существуют ошибочные теории, по которым рэп – это аббревиатура. Однако «rap» в английском не пишется заглавными буквами и имеет однокоренные слова — «rapping», «rapper», и тому подобные. </p></div>';
+		var data1 = '<div><p>Когда выпускники старших классов Декстер Холланд и Грег Крисел создали группу Offspring, они пригласили в неё гитариста Кевина «Нудлс» Вассермана. Тот был старше на три года и уже имел опыт игры в рок-группе. Но главной причиной приглашения стало то, что Вассерман был совершеннолетним и мог покупать спиртное.</p></div><div><p>В Финляндии каждый год проходит чемпионат мира по игре на воображаемой гитаре. Жюри оценивает их по нескольким компонентам: технике, харизме и артистичности.</p></div><div><p>Жест «коза» существовал долгое время, как магический знак для защиты от злых духов. Ронни Джеймс Дио, солист групп Rainbow и Black Sabbath, был первым, кто показал этот жест на рок-концерте. Фанаты переняли его и теперь «коза» очень популярна среди рокеров и металлистов.</p></div><div><p>В одном из английских замков провели настолько мощный рок-концерт, что после него из здания убежали абсолютно все крысы.</p></div><div><p>В Финляндии существует несколько хеви-метал групп специально для детей. Самая известная из них Hevisaurus — выступает в костюмах динозавров.</p></div><div><p>У нас для тебя две новости – хорошая и плохая. Начнем с плохой: человеческие уши способны воспринимать до 85 децибел без вреда для себя, на рок концертах громкость зашкаливает за 120! Ну, а теперь хорошая: ученые доказали что люди, слушающие тяжелую музыку, имеют более развитый интеллект. Так что всем РОК!</p></div>';
+		var data2 = '<div><p>Родиной джаза считается Новый Орлеан, именно там родился самый известный в мире джазмен Луи Армстронг.</p></div><div><p>Ни один другой стиль музыки не окутан такой тайной происхождения, как джаз. Это касается самого слова, до сих пор исследователи не пришли к единому мнению, что означает это определение и откуда оно появилось.</p></div><div><p>Известный джазмен Луи Армстронг хотел избавиться от особенностей своего голоса и даже делал операцию на связки. К счастью для многих почитателей его творчества, она не принесла результатов.</p></div><div><p>В 2001 году Регина Картер исполнила джазовые композиции на скрипке самого Паганини, стоимость которой составляет около 40 млн долларов. Это очень возмутило приверженцев классической музыки.</p></div><div><p>В 2014 году на конференции Американского общества анестезиологов в Новом Орлеане были представлены результаты исследования, которые показали, что прослушивание джаза помогает снизить боль пациенток после операции. Джаз также полезно слушать при головных болях.</p></div><div><p>Запомни эту дату - 30 апреля мир отмечает Международный день джаза.</p></div>';
+		var data3 = '<div><p>Самый успешный поп-певец  - Элвис Пресли. Его песни 18 раз выходили на первое место в списке американских хитов и 17 раз — в списке хитов Великобритании. Он 94 раза попадал в чарт США и 98 раз — в чарты Великобритании.нг.</p></div><div><p>Телохранитель Майкла Джексона — Мэтт Фиддс утверждает, что у поп-короля жила в доме змея, которую он называл Мадонной.</p></div><div><p>Британская армия использовала песни Бритни Спирс, чтобы отпугивать Сомалийских пиратов.</p></div><div><p>Королем поп-музыки Майклом Джексоном были запатентованы уникальные туфли, которые создавали иллюзию, что их хозяин может изменять силу тяжести, наклоняясь вперед. Впервые это движение Джексон использовал в клипе «Smooth Criminal»</p></div><div><p>Пол Маккартни утверждает, что мелодия песни «Yesterday» ему приснилась.</p></div><div><p>В 2011 году в одной из школ в пригороде Чикаго захотели собрать пожертвования для местного культурного центра. Двое учеников предложили ставить на переменах песню Джастина Бибера «Baby» до тех пор, пока не наберётся пожертвований на 1000 $. Через три дня необходимая сумма была собрана.</p></div>';
+		var data4 = '<div><p>До середины ХХ века латиноамериканская музыка во всем мире считалась «музыкой дикарей» и исполнялась только внутри латиноамериканских стран. </p></div><div><p>Текст песни «Mambo №5» сочинил кубинец Дамазо Перес Прадо в те времена, когда мамбо еще нумеровались - в 1949 году. Исполнитель Лу Бега просто добавил имена всех своих одноклассниц — и получился хит 1999 года!</p></div><div><p>Хулио Иглесиас - один из самых популярных исполнителей жанра в 80-е и 90-е.</p></div><div><p>«Ламбада» стала первой волной эпидемии латинской музыки в нашей стране и одной из самых мощных. </p></div><div><p>Латиноамериканские песни исполняются на испанском или португальском языках, реже на французском.</p></div><div><p>Тексты в песнях данного стиля всегда незатейливы, например, в песне «Макарена» поется о девушке по имени Макарена, которая очень любит вечеринки и танцевать.</p></div>';
+		var data5 = '<div><p>Электронная музыка не ограничивается только «тыц-тыц-тыц» и ритмичными звучками, существует большое количество стилей электронной музыки, начиная от drumandbass, заканчивая indie и lo fi.</p></div><div><p>Команда Underworld в 90-х годах оказала сильное влияние на электронную музыку. Их сингл Born Slippy не вошел ни в один альбом, и музыканты почти списали его со счетов, но внезапно режиссер Дэнни Бойл решил включить его в свой культовый фильм «На игле». Картина и песня удивительно подошли друг другу. </p></div><div><p>Как только не называли одного из ярких представителей направления, музыканта Mobi – лысый, сумасшедший, инопланетянин, а он все продолжает сочинять свои неповторимые электронные треки. </p></div><div><p>Знатоки жанра говорят, что писать электронную музыку совсем не легко. Гораздо легче сочинить песню на гитаре, для этого достаточно уметь немного играть на инструменте и знать ноты. Для того чтоб писать трек в секвенсоре – нужно знать физику звука и основы звукорежиссуры, потому что ты себе сам и музыкант и звукооператор.</p></div><div><p>Ребята из Depeche Mode («Вестник моды» в переводе с французского), сами моде никогда не следовали, а создавали её. Смешивая в своей музыке электронщину, рок, синти-поп, альтернативу и еще различные направления. Они развили собственный стиль, чувствующийся с первых тактов. </p></div><div><p>Трек Smack My Bitch Up, британского коллектива The Prodigy можно смело назвать самым скандальным в карьере музыкантов, да и в музыкальной индустрии в целом. Грубая лексика, шокирующий клип - так The Prodigy заработали множество судебных исков и запрет на трансляцию в ряде стран.</p></div>';
+
+		if(thisIndex == 0){
+			$('.owl-carousel').trigger( 'replace.owl.carousel', data0 );
+			$(this).parents(".music-genres").attr("data-music", "0");	
+		}
+		if(thisIndex == 1){
+			$('.owl-carousel').trigger( 'replace.owl.carousel', data1 );
+			$(this).parents(".music-genres").attr("data-music", "1");	
+		}
+		if(thisIndex == 2){
+			$('.owl-carousel').trigger( 'replace.owl.carousel', data2 );
+			$(this).parents(".music-genres").attr("data-music", "2");	
+		}
+		if(thisIndex == 3){
+			$('.owl-carousel').trigger( 'replace.owl.carousel', data3 );
+			$(this).parents(".music-genres").attr("data-music", "3");	
+		}
+		if(thisIndex == 4){
+			$('.owl-carousel').trigger( 'replace.owl.carousel', data4 );
+			$(this).parents(".music-genres").attr("data-music", "4");	
+		}
+		if(thisIndex == 5){
+			$('.owl-carousel').trigger( 'replace.owl.carousel', data5 );
+			$(this).parents(".music-genres").attr("data-music", "5");	
+		}
+		$('.owl-carousel').trigger( 'refresh.owl.carousel' );
+	})
+
+/* TEST START */
+$(document).on('click', '.test_start', function(){
+	$('.test0').fadeOut(600);
+	$('.test1').fadeIn(600);
+})
+
+var countPoints = 0; // кол-во правильных ответов
+$(document).on('click', 'button', function(){
+	$(this).parents('.question').fadeOut(600).next().fadeIn(600);
+	//$(this).answer('test-q').fadeOut(600);
+	if( $(this).attr('data-ans') == '1'){
+		countPoints++;
+		
+	}
+	else{
+		console.log(999);
+	}
+})
+
+$(document).on('click', 'button.next', function(){
+
+	$(this).parents('.test-q').fadeOut(600).next().fadeIn(600);
+
+	if( $(this).hasClass('finish-test') ){
+
+		if( countPoints < 4){
+			$(this).parents('#test').find('.result1').fadeIn(600);
+		}
+		else if( 8 <  countPoints > 3 ){
+			$(this).parents('#test').find('.result2').fadeIn(600);
+		}
+		else{
+			$(this).parents('#test').find('.result3').fadeIn(600);
+		}
+	}
+})
 }); // DOMContentLoaded
 
 /* Сработает после загрузки всего контента страницы (картинок в том числе) */ 
 window.onload = function() {
-	/* Top banner Offset */
-	var heightHeader = document.querySelector('.header_top').offsetHeight;
-	var heightBannerText = document.querySelector('.top-banner_text').offsetHeight;
-	var marginTopBannerText = (heightHeader - heightBannerText - 80) / 2;
-	console.log(heightHeader, heightBannerText, marginTopBannerText);
-	document.querySelector('.top-banner_text').style.marginTop = marginTopBannerText + 'px';
-	// Show text-topbanner
-	$('.top-banner_text').fadeTo( "slow" , 1);
-
-/* 
-Перетаскивание в блоке с возрастом
-*/
-var ageBlock26 = document.querySelector('.age26'); 
-var ageSlider = document.querySelector('.age_slider');
-var delta_w = 0; // Изменение блока возраста26 по ширине
-
-ageSlider.addEventListener(mousedown, saveWH); // Ставим обработку на нажатие кнопки мыши
-document.addEventListener(mouseup, clearXY);  // Ставим обработку на отпускание кнопки мыши
-
-/* Функция для получения текущих координат курсора мыши */
-function getXY(event) {
-
-	if(event.type == 'touchstart' || event.type == 'touchmove' || event.type == 'touchend' || event.type == 'touchcancel'){
-	//	var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
-	    var touch = event.touches[0] || event.changedTouches[0];
-		x = touch.pageX;
-		y = touch.pageY;
-	} else if (event.type == 'mousedown' || event.type == 'mouseup' || event.type == 'mousemove' || event.type == 'mouseover'|| event.type=='mouseout' || event.type=='mouseenter' || event.type=='mouseleave') {
-		x = event.pageX;
-		y = event.pageY;
-	}
-	else {
-		x = window.event.clientX;
-		y = window.event.clientY;
-	}
-	return new Array(x, y);
-}
-
-function saveWH(event) {
-	var point = getXY(event);
-    w_ageBlock26 = ageBlock26.clientWidth; // Текущая ширина блока
-    console.log(w_ageBlock26, 'Текущая ширина блока');
-    delta_w = w_ageBlock26 - point[0]; // Измеряем текущую разницу между шириной и x-координатой мыши
-    console.log(point[0])
-    console.log(delta_w, 'Дельта');  
-
-   //Ставим обработку движения мыши для разных браузеров 
-   document.addEventListener(mousemove, resizeBlock);
-    return false; // Отключаем стандартную обработку нажатия мыши 
-}
-/* Функция для измерения ширины окна */
-function clientWidth() {
-	return document.documentElement.clientWidth == 0 ? document.body.clientWidth : document.documentElement.clientWidth;
-}
-
-function resizeBlock(event) {
-	var point = getXY(event);
-
-    new_w_ageBlock26 = delta_w + point[0]; // Изменяем новое приращение по ширине
-    ageBlock26.style.width = new_w_ageBlock26 + "px"; // Устанавливаем новую ширину блока
-    // Если блок выходит за пределы экрана, то устанавливаем максимальные значения для ширины и высоты 
-    if (ageBlock26.offsetLeft + ageBlock26.clientWidth > clientWidth()) ageBlock26.style.width = (clientWidth() - ageBlock26.offsetLeft)  + "px";
-}
-
-// При отпускании кнопки мыши отключаем обработку движения курсора мыши 
-function clearXY(event){
-	document.removeEventListener(mousemove, resizeBlock);
-}
-//Перетаскивание в блоке с возрастом
-
+	
 }; // window.onload
 
 
