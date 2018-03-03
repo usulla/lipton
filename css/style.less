@@ -115,7 +115,18 @@ Variables
  	-o-transition: @arguments;
  	transition: @arguments;
  }
- .gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+ .transform(@string) {     
+    -webkit-transform: @string;    
+    -moz-transform:    @string;    
+    -ms-transform:     @string;    
+    -o-transform:      @string;
+}
+.box-shadow(@string) {    
+    -webkit-box-shadow:     @string;    
+    -moz-box-shadow:        @string;    
+    box-shadow:             @string;
+}
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
     background-color: @start;
     background-image: -webkit-linear-gradient(@origin, @start, @stop);
     background-image: -moz-linear-gradient(@origin, @start, @stop);
@@ -144,9 +155,9 @@ Variables
  	font-weight:500;
  }
  button, button:active, button:hover, button:focus{
-     outline: none;
- }
- .desktop{
+   outline: none;
+}
+.desktop{
   display: block!important;
 }
 .mobile{
@@ -154,11 +165,11 @@ Variables
 }
 @media (max-width: @l_mobile){
   .desktop{
-   display:none!important;
-}
-.mobile{
-   display:block!important;
-}
+     display:none!important;
+ }
+ .mobile{
+     display:block!important;
+ }
 }
 .socials {
     float: right;
@@ -183,10 +194,10 @@ Variables
     background-position: -51px 0px;
 }
 .socials a.ok{
- background-position: -106px 0px;
+   background-position: -106px 0px;
 }
 .socials a.tw{
- background-position: -158px 0px;
+   background-position: -158px 0px;
 }
 header.header_top{
     .top-banner_text{
@@ -212,8 +223,12 @@ header.header_top{
         height: 0;
         padding-bottom: 6%;
         border: 0;
+        .transition;
+        .transform (.35s ease);
         &:hover{
             cursor:pointer;
+            .box-shadow (4px 4px 0 0 #a0000a);
+            .transform (translateY(8px));
         }
         @media (max-width: @l_mobile) {
             background: url("../img/mobile/m_button-red.jpg");
@@ -281,7 +296,7 @@ header.header_top{
         position:fixed;
         top:0;
         width:100%;
-            z-index: 999;
+        z-index: 999;
     }
     .logo{
         position: absolute;
@@ -289,9 +304,9 @@ header.header_top{
         max-width: 97px;
         z-index:9;
         display:none;
-         @media (max-width: @l_mobile){
+        @media (max-width: @l_mobile){
             display:none;
-         }
+        }
     }
 
     // Burger-menu for mobile
@@ -523,11 +538,10 @@ div.menu {
                 width: 18vw;
                 font-size: 2.5vw;
                 margin: 0 1.7vw;
-                .transition;
-                &:hover{
+                
+                &:hover {
+                    .gradient(left, #e30613,#8c1002);
                     cursor:pointer;
-                    .gradient(left, #e30613, #8b1002);
-                              .transition;
                 }
                 @media (max-width: @l_mobile) { 
                     padding: 3vw 0;
@@ -566,10 +580,10 @@ div.menu {
         .answer .q-text{
             top:34%;
             @media (max-width: @l_mobile) { 
-               top:20%;
-           }
-       }
-       .answer p{
+             top:20%;
+         }
+     }
+     .answer p{
         font-size: 1.9vw;
         line-height: 2.6vw;
         .font-style;
@@ -598,9 +612,9 @@ div.menu {
     .background-mix;
 
     @media (max-width: @l_mobile) {
-     background:url("../img/mobile/m_test-start.jpg");
-     .background-mix; 
- }
+       background:url("../img/mobile/m_test-start.jpg");
+       .background-mix; 
+   }
 }
 .test1{
     background:url("../img/test/bg1.jpg");
@@ -678,9 +692,9 @@ div.menu {
     background-size:cover;
 }
 @media (max-width: @l_mobile) {
-
- padding-bottom: 157%;
+   padding-bottom: 157%;
 }
+
 button.test_start{
   position: absolute;
   bottom: 11vh;
@@ -691,8 +705,13 @@ button.test_start{
   height: 0;
   padding-bottom: 7%;
   border: 0;
+  .transition;
+  .transform (.35s ease);
+
   &:hover{
     cursor:pointer;
+    .box-shadow (4px 4px 0 0 #a0000a);
+    .transform (translateY(8px));
 }
 
 @media (max-width: @l_mobile) {
@@ -717,24 +736,24 @@ button.test_start{
         top:34%;
     }
     @media (max-width: @l_mobile) {
-       background: url("../img/test/m_result-bg.jpg");  
-       background-size: 100%; 
-   }
+     background: url("../img/test/m_result-bg.jpg");  
+     background-size: 100%; 
+ }
 }
 
 .result2, .result3, .result4{
     display:none;
 }
 .shareblock{
-   display: block;
-   width: 100%;
-   position: absolute;
-   bottom: 4vh;
-   text-align: center;
-   margin: 0 auto;
-   float: none;
-   left: 36%;
-   @media (max-width: @l_mobile) {
+ display: block;
+ width: 100%;
+ position: absolute;
+ bottom: 4vh;
+ text-align: center;
+ margin: 0 auto;
+ float: none;
+ left: 36%;
+ @media (max-width: @l_mobile) {
     left: 30%;
 }
 
@@ -769,11 +788,11 @@ button.test_start{
     border-radius: 2px;
 
     @media (max-width: @l_mobile) {
-       margin-right: 2vw;
-       width: 7.6vw;
-       height: 7.6vw;
-       line-height: 7.6vw;
-   }
+     margin-right: 2vw;
+     width: 7.6vw;
+     height: 7.6vw;
+     line-height: 7.6vw;
+ }
 }
 .button_soc a img{
     max-width: 25px;
@@ -788,7 +807,7 @@ button.test_start{
     }
 }
 @media (max-width: @l_mobile) {
- .button_soc a.tw img   {
+   .button_soc a.tw img   {
     max-width: 19px;
 }
 }
@@ -928,34 +947,34 @@ article.music-genres{
 }
 }
 article.music-genres[data-music="0"]{
-   background: url("../img/test/HH.jpg");
-   .background-mix;
-   background-position: center top;   
+ background: url("../img/test/HH.jpg");
+ .background-mix;
+ background-position: center top;   
 }
 article.music-genres[data-music="1"]{
-   background: url("../img/test/ROCK.jpg");
-   .background-mix;
-   background-position: center top;   
+ background: url("../img/test/ROCK.jpg");
+ .background-mix;
+ background-position: center top;   
 }
 article.music-genres[data-music="2"]{
-   background: url("../img/test/jazz.jpg");
-   .background-mix;
-   background-position: center top;   
+ background: url("../img/test/jazz.jpg");
+ .background-mix;
+ background-position: center top;   
 }
 article.music-genres[data-music="3"]{
-   background: url("../img/test/pop.jpg");
-   .background-mix;
-   background-position: center top;   
+ background: url("../img/test/pop.jpg");
+ .background-mix;
+ background-position: center top;   
 }
 article.music-genres[data-music="4"]{
-   background: url("../img/test/latino.jpg");
-   .background-mix;
-   background-position: center top;   
+ background: url("../img/test/latino.jpg");
+ .background-mix;
+ background-position: center top;   
 }
 article.music-genres[data-music="5"]{
-   background: url("../img/test/electro.jpg");
-   .background-mix;
-   background-position: center top;   
+ background: url("../img/test/electro.jpg");
+ .background-mix;
+ background-position: center top;   
 }
 footer{
     .font-style;
@@ -966,9 +985,9 @@ footer{
     .background-mix;
     padding-bottom: 24%;
     @media (max-width: @l_mobile) {
-       background: url("../img/mobile/m_footer.jpg");
-       .background-mix;
-       padding-bottom: 49%;
-   }
+     background: url("../img/mobile/m_footer.jpg");
+     .background-mix;
+     padding-bottom: 49%;
+ }
 }
 
